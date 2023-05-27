@@ -19,6 +19,9 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 # Install python-dotenv to handle .env or .flaskenv files
 RUN pip3 install python-dotenv
 
+# Install Flask-CORS extension
+RUN pip3 install flask-cors
+
 # Copy the application code
 COPY . .
 

@@ -1,22 +1,56 @@
 <html>
 <head>
     <title>Spell Data</title>
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
     <div id="app">
         <h1>Spell Data</h1>
-        <ul>
-            <li >
-				tester tester
-            </li>
-        </ul>
+
+        <div class="form-container">
+            <form @submit.prevent="submitForm">
+                <div class="form-group">
+                    <label for="level">Level:</label>
+                    <input type="text" id="level" v-model="levelValue">
+                </div>
+
+                <div class="form-group">
+                    <label for="magic-level">Magic Level:</label>
+                    <input type="text" id="magic-level" v-model="magicLevelValue">
+                </div>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
     </div>
 
     <script>
         var app = new Vue({
             el: '#app',
+            delimiters: ['[[', ']]'], // Custom delimiters to avoid conflicts with Jinja2
+            data: {
+                spellData: [],
+                levelValue: '',
+                magicLevelValue: ''
+            },
+            methods: {
+                submitForm() {
+                    const level = encodeURIComponent(this.levelValue);
+                    const magicLevel = encodeURIComponent(this.magicLevelValue);
+
+                    const url = `http://localhost:5000/spell-data?level=${level}&magic-level=${magicLevel}`;
+
+                    fetch(url)
+                        .then(response => response.json())
+                        .then(data => {
+                            this.spellData = data;
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                        });
+                }
+            }
         });
     </script>
 </body>
