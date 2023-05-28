@@ -51,7 +51,7 @@ def calculate_spell_damage():
           f'{spell_data["damage"]} damage at level {level} '
           f'and magic level {magic_level}')
 
-    return render_template('index.html', spell_data=spell_data)
+    return render_template('index.html', spell_data=spell_data['damage'])
 
 
 if __name__ == '__main__':
