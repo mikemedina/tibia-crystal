@@ -4,3 +4,5 @@ Flask-SQLAlchemy==3.0.2
 Flask>=2.2
 python-dotenv
 
+alembic~=1.11.1
+SQLAlchemy~=2.0.15
