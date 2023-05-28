@@ -14,19 +14,13 @@ WORKDIR /app
 COPY requirements.txt .
 
 # Install the required packages
-RUN pip3 install --no-cache-dir -r requirements.txt
-
-# Install python-dotenv to handle .env or .flaskenv files
-RUN pip3 install python-dotenv
-
-# Install Flask-CORS extension
-RUN pip3 install flask-cors
+RUN pip3 install -r requirements.txt
 
 # Copy the application code
 COPY . .
 
-# Run the database population script
-RUN python3 populate_spells.py
+# Mount the local crystal.db file into the container
+VOLUME /app/instance
 
 # Expose the desired port
 EXPOSE 5000
