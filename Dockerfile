@@ -22,6 +22,9 @@ COPY . .
 # Mount the local crystal.db file into the container
 VOLUME /app/instance
 
+# Provision the database
+RUN flask db upgrade
+
 # Expose the desired port
 EXPOSE 5000
 
@@ -31,4 +34,3 @@ ENV FLASK_RUN_HOST=0.0.0.0
 
 # Run the application
 CMD ["flask", "run"]
-
