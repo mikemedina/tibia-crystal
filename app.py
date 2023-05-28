@@ -1,6 +1,6 @@
-from flask import Flask, jsonify, render_template, request
-from flask_sqlalchemy import SQLAlchemy
+from flask import Flask, render_template, request
 from flask_cors import CORS
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///crystal.db'
@@ -41,7 +41,9 @@ def calculate_spell_damage():
     level = int(request.args.get('level'))
     magic_level = int(request.args.get('magic-level'))
     spell = Spells.query.filter_by(name='Avalanche').first()
-    damage = (level * 0.2) + ((magic_level * (spell.x_min + spell.x_max)) / 2) + ((spell.y_min + spell.y_max) / 2)
+    damage = (level * 0.2) + (
+                (magic_level * (spell.x_min + spell.x_max)) / 2) + (
+                         (spell.y_min + spell.y_max) / 2)
 
     spell_data = {
         'damage': damage
