@@ -2,13 +2,13 @@ from flask import Flask, jsonify, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 
-
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///crystal.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS '] = False
 
 CORS(app, origins=['http://localhost:5000', 'http://127.0.0.1:5000'])
 db = SQLAlchemy(app)
+
 
 class Spells(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -18,6 +18,7 @@ class Spells(db.Model):
     y_max = db.Column(db.Integer)
     x_min = db.Column(db.Float)
     y_min = db.Column(db.Integer)
+
 
 def spell_to_dict(spell):
     return {
@@ -29,12 +30,11 @@ def spell_to_dict(spell):
         'yMin': spell.y_min
     }
 
+
 @app.route('/')
 def hello():
-    # TODO: Remove query
-    spells = Spells.query.all()
-    return jsonify([spell_to_dict(spell) for spell in spells])
-    #return render_template('index.html')
+    return render_template('index.html')
+
 
 @app.route('/spell-data', methods=['GET'])
 def calculate_spell_damage():
@@ -46,7 +46,7 @@ def calculate_spell_damage():
     spell_data = {
         'damage': damage
     }
- 
+
     print(f'Calculated that Avalanche would do '
           f'{spell_data["damage"]} damage at level {level} '
           f'and magic level {magic_level}')
@@ -56,4 +56,3 @@ def calculate_spell_damage():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
-
