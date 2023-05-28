@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual Environment
+crystal-flask/
+
+# IDE/Editor specific files
+.vscode/
+*.swp
+.idea/
+
+# Other
+.DS_Store
+
