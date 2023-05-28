@@ -6,7 +6,7 @@ from .models import Spells
 
 @app.route('/', methods=['GET'])
 def show_form():
-    return render_template('form.html')
+    return render_template('spell_data.html', spell_data={})
 
 
 @app.route('/spell-data', methods=['GET'])
@@ -18,7 +18,7 @@ def get_spell_data():
         spell.name: calculate_spell_damage(level, magic_level, spell)
         for spell in spells
     }
-    return render_template('table.html', spell_data=spell_data)
+    return render_template('spell_data.html', spell_data=spell_data)
 
 
 def calculate_spell_damage(level, magic_level, spell):

@@ -77,3 +77,19 @@ li {
   margin-bottom: 10px;
 }
 
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.form-container,
+.table-container {
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+.table-container {
+    margin-left: 20px;
+}
