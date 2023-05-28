@@ -1,10 +1,12 @@
 <html>
 <head>
+	<meta charset="UTF-8">
     <title>Spell Data</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
+	{% block content %}
     <div id="app">
         <h1>Spell Data</h1>
 
@@ -12,39 +14,44 @@
             <form @submit.prevent="submitForm">
                 <div class="form-group">
                     <label for="level">Level:</label>
-                    <input type="text" id="level" v-model="levelValue">
+                    <input type="text" id="level" v-model="level_value">
                 </div>
 
                 <div class="form-group">
                     <label for="magic-level">Magic Level:</label>
-                    <input type="text" id="magic-level" v-model="magicLevelValue">
+                    <input type="text" id="magic-level" v-model="magic_level_value">
                 </div>
 
                 <button type="submit">Submit</button>
             </form>
         </div>
+
+        <div>
+            <h2>Spell Damage:</h2>
+            <p>{{ spell_data }}</p>
+        </div>
     </div>
+	{% endblock %}
 
     <script>
         var app = new Vue({
             el: '#app',
-            delimiters: ['[[', ']]'], // Custom delimiters to avoid conflicts with Jinja2
             data: {
-                spellData: [],
-                levelValue: '',
-                magicLevelValue: ''
+                spell_data: [],
+                level_value: '',
+                magic_level_value: ''
             },
             methods: {
                 submitForm() {
-                    const level = encodeURIComponent(this.levelValue);
-                    const magicLevel = encodeURIComponent(this.magicLevelValue);
+                    const level = encodeURIComponent(this.level_value);
+                    const magicLevel = encodeURIComponent(this.magic_level_value);
 
                     const url = `http://localhost:5000/spell-data?level=${level}&magic-level=${magicLevel}`;
 
                     fetch(url)
                         .then(response => response.json())
                         .then(data => {
-                            this.spellData = data;
+                            this.spell_data = data;
                         })
                         .catch(error => {
                             console.error('Error:', error);
