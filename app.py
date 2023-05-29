@@ -26,9 +26,9 @@ def calculate_spell_damage(level, magic_level, spell):
     magic_level_times_average_spell_multiplier = (magic_level * (
             spell.x_min + spell.x_max)) / 2
     average_flat_spell_fluctuation = (spell.y_min + spell.y_max) / 2
-    return int(twenty_percent_of_your_level \
-        + magic_level_times_average_spell_multiplier \
-        + average_flat_spell_fluctuation)
+    return int(twenty_percent_of_your_level
+               + magic_level_times_average_spell_multiplier
+               + average_flat_spell_fluctuation)
 
 
 if __name__ == '__main__':
