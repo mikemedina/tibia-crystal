@@ -26,6 +26,7 @@ def upgrade():
                     sa.Column('y_max', sa.Integer()),
                     sa.Column('x_min', sa.Float()),
                     sa.Column('y_min', sa.Integer()),
+                    sa.Column('target_cap', sa.Integer()),
                     sa.PrimaryKeyConstraint('id')
                     )
     # ### end Alembic commands ###
@@ -38,7 +39,8 @@ def upgrade():
             'x_max': 2.85,
             'y_max': 16,
             'x_min': 1.2,
-            'y_min': 7
+            'y_min': 7,
+            'target_cap': 11
         },
         {
             'name': 'Energy Strike',
@@ -46,7 +48,8 @@ def upgrade():
             'x_max': 2.203,
             'y_max': 14,
             'x_min': 1.403,
-            'y_min': 8
+            'y_min': 8,
+            'target_cap': 1
         },
         {
             'name': 'Eternal Winter',
@@ -54,7 +57,8 @@ def upgrade():
             'x_max': 11,
             'y_max': 50,
             'x_min': 5.5,
-            'y_min': 25
+            'y_min': 25,
+            'target_cap': 16
         },
         {
             'name': 'Explosion',
@@ -62,7 +66,8 @@ def upgrade():
             'x_max': 3.2,
             'y_max': 19,
             'x_min': 1.6,
-            'y_min': 9
+            'y_min': 9,
+            'target_cap': 4
         },
         {
             'name': 'Fireball',
@@ -70,7 +75,8 @@ def upgrade():
             'x_max': 3,
             'y_max': 17,
             'x_min': 1.81,
-            'y_min': 12
+            'y_min': 12,
+            'target_cap': 1
         },
         {
             'name': 'Heal Friend',
@@ -78,7 +84,8 @@ def upgrade():
             'x_max': 14.4,
             'y_max': 90,
             'x_min': 6.3,
-            'y_min': 45
+            'y_min': 45,
+            'target_cap': 1
         },
         {
             'name': 'Heavy Magic Missile',
@@ -86,7 +93,8 @@ def upgrade():
             'x_max': 1.59,
             'y_max': 10,
             'x_min': 0.81,
-            'y_min': 5
+            'y_min': 5,
+            'target_cap': 1
         },
         {
             'name': 'Ice Wave',
@@ -94,7 +102,8 @@ def upgrade():
             'x_max': 2,
             'y_max': 12,
             'x_min': 0.81,
-            'y_min': 5
+            'y_min': 5,
+            'target_cap': 9
         },
         {
             'name': 'Intense Healing',
@@ -102,7 +111,8 @@ def upgrade():
             'x_max': 6,
             'y_max': 37,
             'x_min': 3.6,
-            'y_min': 22
+            'y_min': 22,
+            'target_cap': 1
         },
         {
             'name': 'Light Healing',
@@ -110,7 +120,8 @@ def upgrade():
             'x_max': 1.8,
             'y_max': 11,
             'x_min': 1.4,
-            'y_min': 8
+            'y_min': 8,
+            'target_cap': 1
         },
         {
             'name': 'Light Magic Missile',
@@ -118,7 +129,8 @@ def upgrade():
             'x_max': 0.81,
             'y_max': 4,
             'x_min': 0.4,
-            'y_min': 3
+            'y_min': 3,
+            'target_cap': 1
         },
         {
             'name': 'Mass Healing',
@@ -126,7 +138,8 @@ def upgrade():
             'x_max': 9.6,
             'y_max': 125,
             'x_min': 4.6,
-            'y_min': 100
+            'y_min': 100,
+            'target_cap': 1
         },
         {
             'name': 'Physical Strike',
@@ -134,7 +147,8 @@ def upgrade():
             'x_max': 2.203,
             'y_max': 14,
             'x_min': 1.403,
-            'y_min': 8
+            'y_min': 8,
+            'target_cap': 1
         },
         {
             'name': 'Stalagmite',
@@ -142,7 +156,8 @@ def upgrade():
             'x_max': 1.59,
             'y_max': 10,
             'x_min': 0.81,
-            'y_min': 5
+            'y_min': 5,
+            'target_cap': 1
         },
         {
             'name': 'Stone Shower',
@@ -150,7 +165,8 @@ def upgrade():
             'x_max': 2.6,
             'y_max': 16,
             'x_min': 1,
-            'y_min': 6
+            'y_min': 6,
+            'target_cap': 1
         },
         {
             'name': 'Strong Ice Strike',
@@ -158,7 +174,8 @@ def upgrade():
             'x_max': 4.4,
             'y_max': 28,
             'x_min': 2.8,
-            'y_min': 16
+            'y_min': 16,
+            'target_cap': 1
         },
         {
             'name': 'Strong Ice Wave',
@@ -166,7 +183,8 @@ def upgrade():
             'x_max': 7.6,
             'y_max': 48,
             'x_min': 4.5,
-            'y_min': 20
+            'y_min': 20,
+            'target_cap': 6
         },
         {
             'name': 'Sudden Death',
@@ -174,7 +192,8 @@ def upgrade():
             'x_max': 7.4,
             'y_max': 48,
             'x_min': 4.3,
-            'y_min': 32
+            'y_min': 32,
+            'target_cap': 1
         },
         {
             'name': 'Terra Wave',
@@ -182,7 +201,8 @@ def upgrade():
             'x_max': 6.75,
             'y_max': 30,
             'x_min': 3.25,
-            'y_min': 5
+            'y_min': 5,
+            'target_cap': 8
         },
         {
             'name': 'Ultimate Healing',
@@ -190,7 +210,8 @@ def upgrade():
             'x_max': 12.9,
             'y_max': 90,
             'x_min': 6.8,
-            'y_min': 42
+            'y_min': 42,
+            'target_cap': 1
         },
         {
             'name': 'Ultimate Ice Strike',
@@ -198,7 +219,8 @@ def upgrade():
             'x_max': 7.3,
             'y_max': 55,
             'x_min': 4.5,
-            'y_min': 35
+            'y_min': 35,
+            'target_cap': 1
         },
         {
             'name': 'Wrath of Nature',
@@ -206,7 +228,8 @@ def upgrade():
             'x_max': 9,
             'y_max': 40,
             'x_min': 3,
-            'y_min': 32
+            'y_min': 32,
+            'target_cap': 20
         }
     ]
 
@@ -216,7 +239,8 @@ def upgrade():
                          column('x_max', Float),
                          column('y_max', Integer),
                          column('x_min', Float),
-                         column('y_min', Integer)
+                         column('y_min', Integer),
+                         column('target_cap', Integer)
                          )
     op.bulk_insert(spells_table, all_spells)
 
