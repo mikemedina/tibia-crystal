@@ -1,5 +1,5 @@
 # Use a Linux base image
-FROM ubuntu:latest
+FROM ubuntu:focal
 
 # Update the package lists and install necessary dependencies
 RUN apt-get update && apt-get install -y \
